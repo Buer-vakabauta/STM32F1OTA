@@ -31,28 +31,27 @@ uint32_t SysTick_GetTick(void) {
 
 void main(void) {
 	SysTick_Init();
-    UART_Init(9600);
-    esp_printf("Bootloader start...\r\n");
+    UART_Init(115200);
+    esp_printf("Bootloader start...");
 	
-	 // 限时监听触发命令（2秒）
-    uint32_t tick_start = SysTick_GetTick();  // 假设你已经有一个 SysTick_GetTick() 函数，返回毫秒
+	 // 限时监听触发命令（1秒）
+    uint32_t tick_start = SysTick_GetTick(); 
     uint8_t trigger_buf[6] = {0};
     uint8_t index = 0;
 
-    esp_printf("Waiting for OTA trigger (2s)...\r\n");
+    esp_printf("Waiting for OTA trigger (1s)...");
 
-    while ((SysTick_GetTick() - tick_start) < 2000) {
+    while ((SysTick_GetTick() - tick_start) < 1000) {
         if (UART_hasData()) {
             uint8_t ch = UART_ReceiveChar();
             trigger_buf[index++] = ch;
             if (index == 6) {
                 if (memcmp(trigger_buf, (uint8_t[]){0x55, 0xAA, 0xDE, 0xAD, 0xBE, 0xEF}, 6) == 0) {
-                    esp_printf("OTA trigger matched. Setting flag and restarting...\r\n");
+                    esp_printf("OTA trigger matched. Setting flag and restarting...");
                     FLASH_Unlock();
                     FLASH_ErasePage(OTA_MAGIC_FLAG);
                     FLASH_ProgramWord(OTA_MAGIC_FLAG, OTA_MAGIC_VALUE);
                     FLASH_Lock();
-
                     NVIC_SystemReset();  // 重启
                 }
                 index = 0;
@@ -64,22 +63,18 @@ void main(void) {
 	
     uint32_t magic = *(volatile uint32_t*)OTA_MAGIC_FLAG;
     if (magic != OTA_MAGIC_VALUE) {
-        esp_printf("No update flag. Jumping to App.\r\n");
+        esp_printf("No update flag. Jumping to App.");
+		USART_Cmd(USART1, DISABLE);
+		USART_ITConfig(USART1, USART_IT_RXNE, DISABLE);
+		USART_ClearITPendingBit(USART1, USART_IT_RXNE);
         JumpToApp();
     }
 
-    esp_printf("OTA update mode.\r\n");
+    esp_printf("OTA update mode.");
 
     Flash_EraseAppArea();
 
     uint32_t app_addr = APP_ADDR;
-	// 在主循环中改为：
-// 在OTA模式开始前添加测试代码
-//esp_printf("Ready for test packets...\r\n");
-for (int test = 0; test < 103; test++) {
-    
-}	
-return;
 while (1) {
     if (UART_hasData()) {
         uint8_t start = UART_ReceiveChar();
@@ -88,7 +83,15 @@ while (1) {
         // 等待长度字节
         while (!UART_hasData()) { /* 可以加超时 */ }
         uint8_t length = UART_ReceiveChar();
-        
+         if (length == 0xFF) {
+            esp_printf("OTA complete. Jumping to App...");
+
+            FLASH_Unlock();
+            FLASH_ErasePage(OTA_MAGIC_FLAG);  // 清除升级标志，防止下次误进OTA
+            FLASH_Lock();
+            UART_SendChar(0x5A);
+            JumpToApp();
+        }
         if (length > sizeof(recv_buf)) continue;
         
         // 接收数据
