@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0" version="28.2.5">
+  <diagram name="第 1 页" id="_puixGvQWKrPyML46byC">
+    <mxGraphModel dx="1182" dy="660" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-1" value="上位机&lt;div&gt;编译程序得到bin&lt;br&gt;&lt;div&gt;运行Python脚本&lt;/div&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-7" value="ESP8266" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="335" y="330" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-9" value="pyserial串口通信" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;flipV=1;flipH=1;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="315" y="250" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-13" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.667;entryY=0.875;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="yqwhFeE-lADTBWxgz0e5-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="340" as="sourcePoint" />
+            <mxPoint x="430" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-15" value="回传状态信息" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;flipV=1;flipH=1;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="355" y="260" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-16" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;exitX=0.317;exitY=0.975;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="yqwhFeE-lADTBWxgz0e5-1" target="yqwhFeE-lADTBWxgz0e5-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="200" as="sourcePoint" />
+            <mxPoint x="350" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-18" value="发送更新文件" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;flipV=1;flipH=1;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="285" y="250" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-19" value="ESP8266" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="505" y="330" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-22" value="ESP-NOW透传" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="405" y="360" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-27" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="405" y="354.5" as="sourcePoint" />
+            <mxPoint x="505" y="354.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-28" value="无线" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="425" y="320" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-29" value="MCU&lt;div&gt;STM32&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-35" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="560" y="335" as="sourcePoint" />
+            <mxPoint x="560" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-36" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.35;exitY=0.958;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.219;entryY=0.073;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="yqwhFeE-lADTBWxgz0e5-29" target="yqwhFeE-lADTBWxgz0e5-19">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="523" y="210" as="sourcePoint" />
+            <mxPoint x="520" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-37" value="USART串口通信" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;flipV=1;flipH=1;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="485" y="250" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-39" value="唤醒OTA程序激活升级" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;flipV=1;flipH=1;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="500" y="260" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yqwhFeE-lADTBWxgz0e5-41" value="回传状态信息" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;flipV=1;flipH=1;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="465" y="250" width="100" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
