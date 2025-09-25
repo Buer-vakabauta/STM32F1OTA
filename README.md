@@ -1,29 +1,9 @@
 # STM32F1OTA
-stm32f103c8t6的OTA空中升级系统
+> 通过脚本实现上位机对stm32MCU的无线烧录更新
 
 ### 系统架构
 
-[PC端 Python 脚本]
- │pyserial
-
-ESP8266(pc)
-
- │esp-now协议
-
- |
-
- ESP8266(mcu)
- │
- （UART串口）
- │
- [STM32]
- ┌──────────────┐
- │ Bootloader(16kb)   │ <-- 接收升级数据并写入 Flash()
- └──────────────┘
- ↓
- ┌──────────────┐
- │   应用程序 (48kb))  │ <-- 正常运行用户程序
- └──────────────┘
+![系统架构](https://github.com/Buer-vakabauta/STM32F1OTA/blob/main/assets/SystemStructure.png)
 
 ### 所需配置
 
