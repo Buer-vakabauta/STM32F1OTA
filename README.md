@@ -5,6 +5,10 @@
 
 ![系统架构](https://github.com/Buer-vakabauta/STM32F1OTA/blob/main/assets/SystemStructure.png)
 
+### 程序流程
+
+![程序流程](https://github.com/Buer-vakabauta/STM32F1OTA/blob/main/assets/process.png)
+
 ### 所需配置
 
 bootloader 默认为16kb,配置IROM1为0x8000000 大小为0x4000
